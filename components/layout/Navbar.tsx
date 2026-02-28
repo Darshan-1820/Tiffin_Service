@@ -36,11 +36,11 @@ function NavLink({
       className="group relative block overflow-hidden py-1"
     >
       {/* Original text — slides up on hover */}
-      <span className="block font-body text-[0.8rem] font-medium uppercase tracking-wide-caps text-charcoal transition-transform duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full">
+      <span className="block font-body text-[0.8rem] font-medium uppercase tracking-wide-caps text-white transition-transform duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full">
         {label}
       </span>
       {/* Duplicate — slides up into view */}
-      <span className="absolute left-0 top-full block font-body text-[0.8rem] font-medium uppercase tracking-wide-caps text-charcoal transition-transform duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full">
+      <span className="absolute left-0 top-full block font-body text-[0.8rem] font-medium uppercase tracking-wide-caps text-white transition-transform duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full">
         {label}
       </span>
     </motion.a>
@@ -56,7 +56,6 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
-      // Hide on scroll down, show on scroll up
       if (currentY > lastScrollY.current && currentY > 100) {
         setVisible(false);
       } else {
@@ -74,11 +73,11 @@ export function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: visible ? 0 : -100 }}
         transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
-        className="fixed left-0 right-0 top-0 z-50 bg-cream/40 py-6 backdrop-blur-xl"
+        className={`fixed left-0 right-0 top-0 z-50 py-6 mix-blend-difference ${isOpen ? "invisible" : ""}`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
           {/* Logo */}
-          <a href="#home" className="font-display text-lg font-bold text-charcoal">
+          <a href="#home" className="font-display text-lg font-bold text-white">
             {SITE.name}
           </a>
 
@@ -108,11 +107,11 @@ export function Navbar() {
           {/* Mobile — custom hamburger */}
           <button
             onClick={() => setIsOpen(true)}
-            className="flex flex-col gap-[5px] md:hidden"
+            className="flex min-h-[44px] min-w-[44px] flex-col items-center justify-center gap-[5px] md:hidden"
             aria-label="Open menu"
           >
-            <span className="block h-[1.5px] w-6 bg-charcoal" />
-            <span className="block h-[1.5px] w-4 bg-charcoal" />
+            <span className="block h-[1.5px] w-6 bg-white" />
+            <span className="block h-[1.5px] w-4 bg-white" />
           </button>
         </div>
       </motion.nav>
@@ -125,11 +124,12 @@ export function Navbar() {
             animate={{ clipPath: "circle(150% at calc(100% - 2rem) 2rem)" }}
             exit={{ clipPath: "circle(0% at calc(100% - 2rem) 2rem)" }}
             transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[60] flex flex-col bg-charcoal p-8"
+            className="fixed inset-0 z-[60] flex flex-col p-8"
+            style={{ isolation: "isolate", backgroundColor: "#1C1C1C" }}
           >
             <button
               onClick={() => setIsOpen(false)}
-              className="mb-16 self-end text-cream/60"
+              className="mb-16 min-h-[44px] min-w-[44px] self-end text-cream/60"
               aria-label="Close menu"
             >
               <X className="h-6 w-6" />

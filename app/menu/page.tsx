@@ -55,16 +55,16 @@ export default function MenuPage() {
                   key={item.name}
                   className="grid grid-cols-12 items-baseline border-b border-charcoal/8 py-5"
                 >
-                  <span className="col-span-1 font-body text-sm font-semibold text-charcoal/70">
+                  <span className="col-span-2 font-body text-sm font-semibold text-charcoal/70 md:col-span-1">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="col-span-3 font-display text-base font-semibold text-charcoal">
+                  <h3 className="col-span-7 font-display text-base font-semibold text-charcoal md:col-span-3">
                     {item.name}
                   </h3>
                   <p className="col-span-6 hidden font-body text-sm text-muted md:block">
                     {item.ingredients}
                   </p>
-                  <span className="col-span-8 text-right font-body text-sm tabular-nums text-charcoal/50 md:col-span-2">
+                  <span className="col-span-3 text-right font-body text-sm tabular-nums text-charcoal/50 md:col-span-2">
                     {item.cal} kcal
                   </span>
                 </div>
@@ -89,16 +89,16 @@ export default function MenuPage() {
                   key={item.name}
                   className="grid grid-cols-12 items-baseline border-b border-charcoal/8 py-5"
                 >
-                  <span className="col-span-1 font-body text-sm font-semibold text-charcoal/70">
+                  <span className="col-span-2 font-body text-sm font-semibold text-charcoal/70 md:col-span-1">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="col-span-3 font-display text-base font-semibold text-charcoal">
+                  <h3 className="col-span-7 font-display text-base font-semibold text-charcoal md:col-span-3">
                     {item.name}
                   </h3>
                   <p className="col-span-6 hidden font-body text-sm text-muted md:block">
                     {item.ingredients}
                   </p>
-                  <span className="col-span-8 text-right font-body text-sm tabular-nums text-charcoal/50 md:col-span-2">
+                  <span className="col-span-3 text-right font-body text-sm tabular-nums text-charcoal/50 md:col-span-2">
                     {item.cal} kcal
                   </span>
                 </div>

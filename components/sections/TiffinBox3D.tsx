@@ -67,7 +67,7 @@ export function TiffinBox3D() {
     <section ref={sectionRef} className="relative h-[300vh]">
       <motion.div
         style={{ opacity }}
-        className="sticky top-0 flex h-screen items-center overflow-hidden bg-charcoal"
+        className="sticky top-0 flex h-[100dvh] items-center overflow-hidden bg-charcoal"
       >
         {/* Warm glow behind tiffin */}
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[50vh] w-[50vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/6 blur-[120px]" />
@@ -77,8 +77,8 @@ export function TiffinBox3D() {
           <TiffinSceneWrapper progress={progress} />
         </div>
 
-        {/* Labels */}
-        <div className="pointer-events-none absolute inset-0">
+        {/* Labels — hidden on mobile to prevent overlap */}
+        <div className="pointer-events-none absolute inset-0 hidden md:block">
           <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6">
             <div className="z-10 max-w-xs space-y-10">
               {tierLabels

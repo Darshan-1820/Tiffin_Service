@@ -47,22 +47,22 @@ export function TodaysMenu() {
               className="group grid grid-cols-12 items-baseline border-b border-charcoal/8 py-5 transition-colors duration-300 hover:bg-charcoal/[0.02] md:py-6"
             >
               {/* Number */}
-              <span className="col-span-1 font-body text-sm font-semibold text-charcoal/70">
+              <span className="col-span-2 font-body text-sm font-semibold text-charcoal/70 md:col-span-1">
                 {String(i + 1).padStart(2, "0")}
               </span>
 
               {/* Name */}
-              <h3 className="col-span-4 font-display text-lg font-semibold text-charcoal transition-colors group-hover:text-accent md:col-span-3 md:text-xl">
+              <h3 className="col-span-7 font-display text-base font-semibold text-charcoal transition-colors group-hover:text-accent md:col-span-3 md:text-xl">
                 {item.name}
               </h3>
 
               {/* Ingredients */}
-              <p className="col-span-5 hidden font-body text-sm text-muted md:col-span-6 md:block">
+              <p className="col-span-6 hidden font-body text-sm text-muted md:block">
                 {item.ingredients}
               </p>
 
               {/* Calories */}
-              <span className="col-span-7 text-right font-body text-sm tabular-nums text-charcoal/60 md:col-span-2">
+              <span className="col-span-3 text-right font-body text-sm tabular-nums text-charcoal/60 md:col-span-2">
                 {item.cal} kcal
               </span>
             </motion.div>

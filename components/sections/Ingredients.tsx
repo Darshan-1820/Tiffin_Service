@@ -74,7 +74,7 @@ export function Ingredients() {
                   {dish.name}
                 </h3>
                 {/* Big calorie number */}
-                <span className="font-display text-[2.5rem] font-bold leading-none text-accent/80">
+                <span className="font-display text-[clamp(1.75rem,5vw,2.5rem)] font-bold leading-none text-accent/80">
                   {dish.cal}
                   <span className="ml-1 text-xs font-normal text-cream/30">
                     kcal

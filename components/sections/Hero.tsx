@@ -53,7 +53,7 @@ export function Hero() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative h-screen overflow-hidden bg-charcoal"
+      className="relative min-h-[100dvh] overflow-hidden bg-charcoal"
     >
       {/* Grain */}
       <div
@@ -72,7 +72,7 @@ export function Hero() {
       {/* Content */}
       <motion.div
         style={{ opacity: textOpacity, y: textY }}
-        className="relative z-20 flex h-full flex-col justify-end px-6 pb-16 md:pb-20"
+        className="relative z-20 flex min-h-[100dvh] flex-col justify-end px-6 pb-12 pt-28 md:pb-20"
       >
         <div className="mx-auto w-full max-w-7xl">
           {/* Eyebrow */}

@@ -61,7 +61,7 @@ export function FooterCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5, duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-            className="mt-12 inline-flex items-center gap-6"
+            className="mt-12 flex flex-col items-center gap-6 sm:flex-row"
           >
             <a
               href={`${CONTACT.whatsapp}?text=${encodeURIComponent(
