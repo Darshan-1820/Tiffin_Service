@@ -127,7 +127,7 @@ export function Hero() {
               >
                 <span>Start your plan</span>
               </a>
-              <a href="#menu" className="link-arrow text-cream/40 hover:text-cream">
+              <a href="/#menu" className="link-arrow text-cream/40 hover:text-cream">
                 Explore
                 <ArrowDownRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>

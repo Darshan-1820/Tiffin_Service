@@ -73,11 +73,11 @@ export function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: visible ? 0 : -100 }}
         transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
-        className={`fixed left-0 right-0 top-0 z-50 py-6 mix-blend-difference ${isOpen ? "invisible" : ""}`}
+        className={`fixed left-0 right-0 top-0 z-50 bg-gradient-to-b from-charcoal/60 via-charcoal/20 to-transparent py-5 backdrop-blur-sm ${isOpen ? "invisible" : ""}`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
           {/* Logo */}
-          <a href="#home" className="font-display text-lg font-bold text-white">
+          <a href="/" className="font-display text-lg font-bold text-white">
             {SITE.name}
           </a>
 

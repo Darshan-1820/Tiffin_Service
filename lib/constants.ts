@@ -11,20 +11,20 @@ export const CONTACT = {
   whatsapp: "https://wa.me/918983528922",
   address: "Manish Nagar, Nagpur, Maharashtra",
   area: "Manish Nagar & surrounding areas",
-  hours: "Lunch 8 AM – 12 PM  /  Dinner 5 – 9 PM",
+  hours: "Lunch 8 AM to 12 PM  /  Dinner 5 to 9 PM",
 } as const;
 
 export const PRICING = {
   lunch: 2500,
   dinner: 2500,
   both: 3500,
-  skipDays: "6–8 days/month",
+  skipDays: "6 to 8 days/month",
 } as const;
 
 export const NAV_LINKS = [
-  { label: "Menu", href: "#menu" },
-  { label: "Fit Bite", href: "#fitbite" },
-  { label: "Process", href: "#process" },
-  { label: "Laundry", href: "#laundry" },
-  { label: "Contact", href: "#contact" },
+  { label: "Menu", href: "/#menu" },
+  { label: "Fit Bite", href: "/#fitbite" },
+  { label: "Process", href: "/#process" },
+  { label: "Laundry", href: "/#laundry" },
+  { label: "Contact", href: "/#contact" },
 ] as const;

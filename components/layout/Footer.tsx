@@ -21,7 +21,7 @@ export function Footer() {
             {/* Links */}
             <div className="flex items-center gap-6 sm:gap-8">
               <a
-                href="#menu"
+                href="/#menu"
                 className="py-2 font-body text-[0.65rem] font-semibold uppercase tracking-wide-caps text-muted transition-colors hover:text-charcoal"
               >
                 Menu
