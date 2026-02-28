@@ -8,7 +8,7 @@ interface MarqueeProps {
 
 export function Marquee({
   items,
-  separator = "—",
+  separator = "\u00B7",
   className,
 }: MarqueeProps) {
   // Double the items for seamless loop

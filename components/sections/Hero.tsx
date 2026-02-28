@@ -5,7 +5,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { CONTACT } from "@/lib/constants";
 import { ArrowDownRight } from "lucide-react";
 
-// Character-by-character reveal — theatrical hero text
 function CharReveal({
   text,
   className,
@@ -44,7 +43,6 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
-  // Parallax — image/bg moves slower
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const textY = useTransform(scrollYProgress, [0, 0.5], ["0%", "20%"]);
@@ -53,7 +51,7 @@ export function Hero() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-[100dvh] overflow-hidden bg-charcoal"
+      className="relative min-h-[85dvh] overflow-hidden bg-charcoal md:min-h-[90dvh]"
     >
       {/* Grain */}
       <div
@@ -69,10 +67,10 @@ export function Hero() {
         className="pointer-events-none absolute -right-[20vw] -top-[10vh] h-[80vh] w-[60vw] rounded-full bg-accent/8 blur-[180px]"
       />
 
-      {/* Content */}
+      {/* Content — vertically centered */}
       <motion.div
         style={{ opacity: textOpacity, y: textY }}
-        className="relative z-20 flex min-h-[100dvh] flex-col justify-end px-6 pb-12 pt-28 md:pb-20"
+        className="relative z-20 flex min-h-[85dvh] flex-col justify-center px-6 py-20 md:min-h-[90dvh] md:py-24"
       >
         <div className="mx-auto w-full max-w-7xl">
           {/* Eyebrow */}
@@ -80,40 +78,47 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="mb-6 font-body text-[0.7rem] font-medium uppercase tracking-wide-caps text-cream/40"
+            className="mb-6 font-body text-[0.65rem] font-semibold uppercase tracking-wide-caps text-cream/40"
           >
             Manish Nagar, Nagpur
           </motion.p>
 
-          {/* Main headline — massive, tight, editorial */}
+          {/* Main headline */}
           <h1 className="overflow-hidden">
             <CharReveal
-              text="Home-cooked."
+              text="Fresh from"
               delay={0.8}
               className="block font-display text-display font-bold leading-display tracking-tight-display text-cream"
             />
           </h1>
           <h1 className="overflow-hidden">
             <CharReveal
+              text="Home."
+              delay={1.2}
+              className="block font-display text-display font-bold leading-display tracking-tight-display text-cream"
+            />
+          </h1>
+          <h1 className="overflow-hidden">
+            <CharReveal
               text="Delivered."
-              delay={1.4}
+              delay={1.6}
               className="block font-display text-display font-bold leading-display tracking-tight-display text-accent"
             />
           </h1>
 
-          {/* Bottom bar — sub info + CTA */}
+          {/* Bottom bar — tighter */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.2, duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-            className="mt-12 flex flex-col items-start justify-between gap-8 border-t border-cream/10 pt-8 md:flex-row md:items-end"
+            className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-cream/10 pt-6 md:flex-row md:items-end"
           >
-            <p className="max-w-xs font-body text-sm leading-relaxed text-cream/40">
-              Fresh lunch & dinner with full ingredient transparency.
-              Every calorie counted. Every dish made from scratch.
+            <p className="max-w-xs font-body text-[0.8rem] leading-relaxed text-cream/40">
+              Lunch and dinner with full ingredient transparency.
+              Every calorie counted. Every dish from scratch.
             </p>
 
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-5">
               <a
                 href={`${CONTACT.whatsapp}?text=${encodeURIComponent("Hi! I'd like to start a tiffin plan.")}`}
                 target="_blank"
@@ -135,8 +140,8 @@ export function Hero() {
       <motion.div
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 1 }}
-        transition={{ delay: 2.5, duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-        className="absolute bottom-0 left-6 z-20 h-20 w-[1px] origin-top bg-gradient-to-b from-accent/50 to-transparent md:left-12"
+        transition={{ delay: 2.6, duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+        className="absolute bottom-0 left-6 z-20 h-16 w-[1px] origin-top bg-gradient-to-b from-accent/50 to-transparent md:left-12"
       />
     </section>
   );

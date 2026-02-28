@@ -10,7 +10,7 @@ const testimonials = [
     context: "Manish Nagar",
   },
   {
-    quote: "Consistent quality every day. My lunch is sorted — I don't have to think about it anymore.",
+    quote: "Consistent quality every day. My lunch is sorted and I don't have to think about it anymore.",
     name: "Rahul M.",
     context: "Manish Nagar",
   },
@@ -24,55 +24,58 @@ const testimonials = [
     name: "Vikram D.",
     context: "Mihan, Nagpur",
   },
+  {
+    quote: "I switched from another service after seeing their menu transparency. The dal and sabji quality is genuinely good.",
+    name: "Sneha T.",
+    context: "Manish Nagar",
+  },
 ];
 
 export function Testimonials() {
   return (
-    <section className="bg-surface py-24 md:py-32 lg:py-40">
+    <section className="bg-cream py-16 md:py-20 lg:py-24">
       <Container>
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mb-4 font-body text-[0.7rem] font-medium uppercase tracking-wide-caps text-muted"
+          className="mb-3 font-body text-[0.65rem] font-semibold uppercase tracking-wide-caps text-muted"
         >
           Testimonials
         </motion.p>
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-          className="mb-16 font-display text-h2 font-bold leading-tight tracking-tight-display text-charcoal"
+          className="mb-12 font-display text-h2 font-bold leading-tight tracking-tight-display text-charcoal"
         >
           What people say.
         </motion.h2>
       </Container>
 
-      {/* Horizontal scroll — editorial quote cards */}
-      <div className="scroll-snap-x hide-scrollbar flex gap-6 overflow-x-auto px-6 pb-4 md:px-[calc((100vw-80rem)/2+1.5rem)]">
+      <div className="scroll-snap-x hide-scrollbar flex gap-5 overflow-x-auto px-6 pb-2 md:px-[calc((100vw-80rem)/2+1.5rem)]">
         {testimonials.map((t, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.08, ease: [0.76, 0, 0.24, 1] }}
-            className="min-w-[320px] max-w-[420px] flex-shrink-0 border-t-2 border-charcoal bg-white p-8 md:min-w-[400px] md:p-10"
+            transition={{ duration: 0.5, delay: i * 0.07, ease: [0.76, 0, 0.24, 1] }}
+            className="min-w-[260px] max-w-[380px] flex-shrink-0 border-t-2 border-charcoal bg-white p-5 sm:min-w-[300px] sm:p-6 md:min-w-[360px] md:p-8"
           >
-            <p className="mb-8 font-serif text-xl italic leading-relaxed text-charcoal">
+            <p className="mb-6 font-serif text-lg italic leading-relaxed text-charcoal">
               &ldquo;{t.quote}&rdquo;
             </p>
             <div className="flex items-center gap-3">
-              {/* Avatar circle */}
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-charcoal font-body text-xs font-bold text-cream">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-charcoal font-body text-[0.65rem] font-bold text-cream">
                 {t.name[0]}
               </div>
               <div>
-                <p className="font-body text-sm font-semibold text-charcoal">
+                <p className="font-body text-sm font-bold text-charcoal">
                   {t.name}
                 </p>
-                <p className="font-body text-xs text-muted">{t.context}</p>
+                <p className="font-body text-[0.65rem] text-muted">{t.context}</p>
               </div>
             </div>
           </motion.div>

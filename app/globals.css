@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --cream: #FAF8F3;
-  --charcoal: #1C1C1C;
-  --accent: #E8702A;
-  --accent-light: #FFECD2;
-  --surface: #F4F0EA;
-  --muted: #9C9889;
+  --cream: #F5F2EC;
+  --charcoal: #181614;
+  --accent: #C84B28;
+  --accent-light: #F7E5DA;
+  --surface: #ECE8E0;
+  --muted: #78716A;
 }
 
 html {
@@ -64,11 +64,11 @@ html.lenis, html.lenis body {
   position: relative;
   overflow: hidden;
   border: 1.5px solid currentColor;
-  padding: 16px 36px;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
+  padding: 12px 24px;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   background: transparent;
   transition: color 0.4s cubic-bezier(0.76, 0, 0.24, 1),
@@ -85,6 +85,12 @@ html.lenis, html.lenis body {
   transform: translateX(-101%);
   transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
   z-index: 0;
+}
+@media (min-width: 640px) {
+  .btn-fill {
+    padding: 14px 32px;
+    font-size: 0.75rem;
+  }
 }
 .btn-fill:hover::before {
   transform: translateX(0);
@@ -107,7 +113,7 @@ html.lenis, html.lenis body {
 /* Light variant (on dark bg) */
 .btn-fill-light {
   color: var(--cream);
-  border-color: rgba(250, 248, 243, 0.3);
+  border-color: rgba(245, 242, 236, 0.3);
 }
 .btn-fill-light:hover {
   border-color: var(--cream);
@@ -130,10 +136,10 @@ html.lenis, html.lenis body {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
   position: relative;
   cursor: pointer;
 }
@@ -163,8 +169,8 @@ html.lenis, html.lenis body {
 /* Marquee */
 .marquee-track {
   display: flex;
-  gap: 4rem;
-  animation: marquee 25s linear infinite;
+  gap: 1.5rem;
+  animation: marquee 20s linear infinite;
   white-space: nowrap;
 }
 @keyframes marquee {

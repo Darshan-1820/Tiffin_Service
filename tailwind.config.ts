@@ -9,12 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cream: "#FAF8F3",
-        charcoal: "#1C1C1C",
-        accent: "#E8702A",
-        "accent-light": "#FFECD2",
-        surface: "#F4F0EA",
-        muted: "#9C9889",
+        cream: "#F5F2EC",
+        charcoal: "#181614",
+        accent: "#C84B28",
+        "accent-light": "#F7E5DA",
+        surface: "#ECE8E0",
+        muted: "#78716A",
       },
       fontFamily: {
         display: ["Clash Display", "var(--font-clash)", "sans-serif"],
@@ -22,19 +22,18 @@ const config: Config = {
         serif: ["var(--font-fraunces)", "serif"],
       },
       fontSize: {
-        // Fluid type scale
-        "display": "clamp(3.5rem, 10vw, 9rem)",
-        "h1": "clamp(2.5rem, 7vw, 6rem)",
-        "h2": "clamp(1.75rem, 4.5vw, 3.5rem)",
-        "h3": "clamp(1.25rem, 2vw, 1.75rem)",
+        display: "clamp(3rem, 9vw, 8rem)",
+        h1: "clamp(2.25rem, 6vw, 5rem)",
+        h2: "clamp(1.75rem, 4vw, 3rem)",
+        h3: "clamp(1.15rem, 1.8vw, 1.5rem)",
       },
       letterSpacing: {
-        "tight-display": "-0.04em",
-        "wide-caps": "0.1em",
+        "tight-display": "-0.05em",
+        "wide-caps": "0.12em",
       },
       lineHeight: {
-        "display": "0.92",
-        "tight": "1.1",
+        display: "0.9",
+        tight: "1.1",
       },
     },
   },

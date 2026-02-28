@@ -36,11 +36,11 @@ function NavLink({
       className="group relative block overflow-hidden py-1"
     >
       {/* Original text — slides up on hover */}
-      <span className="block font-body text-[0.8rem] font-medium uppercase tracking-wide-caps text-white transition-transform duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full">
+      <span className="block font-body text-[0.7rem] font-semibold uppercase tracking-wide-caps text-white transition-transform duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full">
         {label}
       </span>
       {/* Duplicate — slides up into view */}
-      <span className="absolute left-0 top-full block font-body text-[0.8rem] font-medium uppercase tracking-wide-caps text-white transition-transform duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full">
+      <span className="absolute left-0 top-full block font-body text-[0.7rem] font-semibold uppercase tracking-wide-caps text-white transition-transform duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full">
         {label}
       </span>
     </motion.a>
@@ -124,7 +124,7 @@ export function Navbar() {
             animate={{ clipPath: "circle(150% at calc(100% - 2rem) 2rem)" }}
             exit={{ clipPath: "circle(0% at calc(100% - 2rem) 2rem)" }}
             transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[60] flex flex-col p-8"
+            className="fixed inset-0 z-[60] flex flex-col overflow-y-auto p-8"
             style={{ isolation: "isolate", backgroundColor: "#1C1C1C" }}
           >
             <button

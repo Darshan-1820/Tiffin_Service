@@ -2,53 +2,62 @@
 
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Edges } from "@react-three/drei";
 import * as THREE from "three";
 
 interface TiffinModelProps {
   progress: number;
 }
 
-// Sketch palette
-const INK = "#3D3229";
-const BODY = "#E8E0D4";
-const BODY_RIM = "#D6CEC2";
-const LID_COLOR = "#DDD5C8";
+// Stainless steel palette
+const STEEL = "#B8B8B8";
+const RIM = "#D0D0D0";
+const LID_TOP = "#C4C4C4";
+const HANDLE = "#A0A0A0";
 
-const EDGE_T = 15;
-
-function SketchTier({
+function SteelTier({
   baseY,
   separationY,
-  children,
 }: {
   baseY: number;
   separationY: number;
-  children?: React.ReactNode;
 }) {
   return (
     <group position={[0, baseY + separationY, 0]}>
+      {/* Main body — slight taper like real stainless steel tiffins */}
       <mesh>
-        <cylinderGeometry args={[0.72, 0.72, 0.48, 48]} />
-        <meshToonMaterial color={BODY} />
-        <Edges threshold={EDGE_T} color={INK} />
+        <cylinderGeometry args={[0.72, 0.7, 0.48, 64]} />
+        <meshStandardMaterial
+          color={STEEL}
+          metalness={0.85}
+          roughness={0.25}
+          envMapIntensity={1.2}
+        />
       </mesh>
+      {/* Top rim */}
       <mesh position={[0, 0.24, 0]}>
-        <cylinderGeometry args={[0.76, 0.76, 0.04, 48]} />
-        <meshToonMaterial color={BODY_RIM} />
-        <Edges threshold={EDGE_T} color={INK} />
+        <cylinderGeometry args={[0.77, 0.77, 0.04, 64]} />
+        <meshStandardMaterial
+          color={RIM}
+          metalness={0.9}
+          roughness={0.15}
+          envMapIntensity={1.4}
+        />
       </mesh>
+      {/* Bottom rim */}
       <mesh position={[0, -0.24, 0]}>
-        <cylinderGeometry args={[0.76, 0.76, 0.04, 48]} />
-        <meshToonMaterial color={BODY_RIM} />
-        <Edges threshold={EDGE_T} color={INK} />
+        <cylinderGeometry args={[0.75, 0.75, 0.04, 64]} />
+        <meshStandardMaterial
+          color={RIM}
+          metalness={0.9}
+          roughness={0.15}
+          envMapIntensity={1.4}
+        />
       </mesh>
-      {children}
     </group>
   );
 }
 
-function SketchLid({
+function SteelLid({
   openProgress,
   baseY,
 }: {
@@ -60,28 +69,45 @@ function SketchLid({
 
   return (
     <group position={[0, lidY, 0]} rotation={[lidRotation, 0, 0]}>
+      {/* Lid disc */}
       <mesh>
-        <cylinderGeometry args={[0.76, 0.76, 0.06, 48]} />
-        <meshToonMaterial color={LID_COLOR} />
-        <Edges threshold={EDGE_T} color={INK} />
-      </mesh>
-      <mesh position={[0, -0.03, 0]}>
-        <cylinderGeometry args={[0.78, 0.78, 0.03, 48]} />
-        <meshToonMaterial color={BODY_RIM} />
-        <Edges threshold={EDGE_T} color={INK} />
-      </mesh>
-      {/* Knob */}
-      <mesh position={[0, 0.1, 0]}>
-        <cylinderGeometry args={[0.12, 0.15, 0.08, 24]} />
-        <meshToonMaterial color={BODY_RIM} />
-        <Edges threshold={EDGE_T} color={INK} />
-      </mesh>
-      <mesh position={[0, 0.15, 0]}>
-        <sphereGeometry
-          args={[0.08, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2]}
+        <cylinderGeometry args={[0.77, 0.77, 0.05, 64]} />
+        <meshStandardMaterial
+          color={LID_TOP}
+          metalness={0.9}
+          roughness={0.2}
+          envMapIntensity={1.3}
         />
-        <meshToonMaterial color={BODY} />
-        <Edges threshold={EDGE_T} color={INK} />
+      </mesh>
+      {/* Lid lip */}
+      <mesh position={[0, -0.025, 0]}>
+        <cylinderGeometry args={[0.79, 0.79, 0.025, 64]} />
+        <meshStandardMaterial
+          color={RIM}
+          metalness={0.9}
+          roughness={0.15}
+          envMapIntensity={1.4}
+        />
+      </mesh>
+      {/* Handle base */}
+      <mesh position={[0, 0.06, 0]}>
+        <cylinderGeometry args={[0.14, 0.16, 0.07, 32]} />
+        <meshStandardMaterial
+          color={HANDLE}
+          metalness={0.85}
+          roughness={0.3}
+          envMapIntensity={1.0}
+        />
+      </mesh>
+      {/* Handle knob — smooth dome */}
+      <mesh position={[0, 0.14, 0]}>
+        <sphereGeometry args={[0.1, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2]} />
+        <meshStandardMaterial
+          color={RIM}
+          metalness={0.92}
+          roughness={0.12}
+          envMapIntensity={1.5}
+        />
       </mesh>
     </group>
   );
@@ -92,7 +118,7 @@ export function TiffinModel({ progress }: TiffinModelProps) {
 
   useFrame((_, delta) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += delta * 0.12;
+      groupRef.current.rotation.y += delta * 0.1;
     }
   });
 
@@ -108,10 +134,10 @@ export function TiffinModel({ progress }: TiffinModelProps) {
   return (
     <group ref={groupRef} position={[0, -totalStackHeight / 2, 0]}>
       {tierPositions.map((y, i) => (
-        <SketchTier key={i} baseY={y} separationY={0} />
+        <SteelTier key={i} baseY={y} separationY={0} />
       ))}
 
-      <SketchLid
+      <SteelLid
         openProgress={progress}
         baseY={tierPositions[3] + tierHeight / 2 + 0.05}
       />

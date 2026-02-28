@@ -2,7 +2,7 @@
 
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import { TiffinModel } from "./TiffinModel";
 import { SteamParticles } from "./SteamParticles";
 
@@ -13,25 +13,35 @@ interface TiffinSceneProps {
 function SceneContent({ progress }: { progress: number }) {
   return (
     <>
-      {/* Soft illustration lighting — no harsh shadows */}
-      <ambientLight intensity={0.7} />
-      <directionalLight position={[4, 8, 4]} intensity={0.8} />
-      <directionalLight position={[-3, 4, -2]} intensity={0.3} color="#E8E0D4" />
+      {/* Environment map for metal reflections */}
+      <Environment preset="city" />
+
+      {/* Key light — warm from upper right */}
+      <directionalLight
+        position={[5, 8, 4]}
+        intensity={1.5}
+        color="#FFF5E6"
+      />
+      {/* Fill light — cooler from left */}
+      <directionalLight
+        position={[-4, 4, -2]}
+        intensity={0.4}
+        color="#E0E8F0"
+      />
+      {/* Rim light — from behind for edge highlights */}
+      <directionalLight
+        position={[0, 3, -5]}
+        intensity={0.6}
+        color="#FFFFFF"
+      />
+      {/* Ambient base */}
+      <ambientLight intensity={0.3} />
 
       {/* The tiffin box */}
       <TiffinModel progress={progress} />
 
-      {/* Steam */}
+      {/* Steam — warmer color for metal context */}
       <SteamParticles visible={progress > 0.3} baseY={1.5 + progress * 3} />
-
-      {/* Controls — subtle, just for feel */}
-      <OrbitControls
-        enableZoom={false}
-        enablePan={false}
-        autoRotate={false}
-        maxPolarAngle={Math.PI / 2}
-        minPolarAngle={Math.PI / 4}
-      />
     </>
   );
 }
@@ -40,7 +50,7 @@ export function TiffinScene({ progress }: TiffinSceneProps) {
   return (
     <Canvas
       camera={{ position: [0, 2, 5], fov: 45 }}
-      gl={{ antialias: true, alpha: true }}
+      gl={{ antialias: true, alpha: true, toneMapping: 3 }}
       dpr={[1, 1.5]}
     >
       <Suspense fallback={null}>

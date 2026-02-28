@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 const MENU = [
   { name: "Dal Tadka", ingredients: "Toor dal, tomato, onion, garlic, cumin, turmeric, ghee", cal: "180" },
   { name: "Aloo Gobi", ingredients: "Potato, cauliflower, tomato, ginger, green chili, coriander", cal: "165" },
-  { name: "Jeera Rice", ingredients: "Basmati rice, cumin seeds, ghee, bay leaf", cal: "210" },
+  { name: "Rice", ingredients: "Basmati rice, ghee, bay leaf", cal: "210" },
   { name: "Tawa Roti", ingredients: "Whole wheat flour, water, ghee", cal: "80 each" },
   { name: "Mix Veg", ingredients: "Beans, carrot, peas, capsicum, onion, tomato", cal: "155" },
   { name: "Raita", ingredients: "Fresh curd, cucumber, cumin powder, salt", cal: "65" },
@@ -15,27 +15,26 @@ const MENU = [
 
 export function TodaysMenu() {
   return (
-    <section id="menu" className="bg-cream py-24 md:py-32 lg:py-40">
+    <section id="menu" className="bg-cream py-16 md:py-20 lg:py-24">
       <Container>
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mb-4 font-body text-[0.7rem] font-medium uppercase tracking-wide-caps text-muted"
+          className="mb-3 font-body text-[0.65rem] font-semibold uppercase tracking-wide-caps text-muted"
         >
           Today&apos;s menu
         </motion.p>
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-          className="mb-16 max-w-xl font-display text-h2 font-bold leading-tight tracking-tight-display text-charcoal"
+          className="mb-12 max-w-xl font-display text-h2 font-bold leading-tight tracking-tight-display text-charcoal"
         >
           What&apos;s cooking today.
         </motion.h2>
 
-        {/* Menu list — editorial table style */}
         <div className="border-t border-charcoal/10">
           {MENU.map((item, i) => (
             <motion.div
@@ -43,26 +42,19 @@ export function TodaysMenu() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.06, duration: 0.5 }}
-              className="group grid grid-cols-12 items-baseline border-b border-charcoal/8 py-5 transition-colors duration-300 hover:bg-charcoal/[0.02] md:py-6"
+              transition={{ delay: i * 0.05, duration: 0.4 }}
+              className="group grid grid-cols-12 items-baseline border-b border-charcoal/8 py-4 transition-colors duration-300 hover:bg-charcoal/[0.02] md:py-5"
             >
-              {/* Number */}
-              <span className="col-span-2 font-body text-sm font-semibold text-charcoal/70 md:col-span-1">
+              <span className="col-span-1 font-body text-sm font-bold text-charcoal/60">
                 {String(i + 1).padStart(2, "0")}
               </span>
-
-              {/* Name */}
-              <h3 className="col-span-7 font-display text-base font-semibold text-charcoal transition-colors group-hover:text-accent md:col-span-3 md:text-xl">
+              <h3 className="col-span-7 font-display text-sm font-bold text-charcoal transition-colors group-hover:text-accent sm:text-base md:col-span-3 md:text-lg">
                 {item.name}
               </h3>
-
-              {/* Ingredients */}
               <p className="col-span-6 hidden font-body text-sm text-muted md:block">
                 {item.ingredients}
               </p>
-
-              {/* Calories */}
-              <span className="col-span-3 text-right font-body text-sm tabular-nums text-charcoal/60 md:col-span-2">
+              <span className="col-span-4 text-right font-body text-xs tabular-nums text-charcoal/60 sm:text-sm md:col-span-2">
                 {item.cal} kcal
               </span>
             </motion.div>
@@ -70,14 +62,18 @@ export function TodaysMenu() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-8 flex justify-end"
+          transition={{ delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
+          className="mt-8 flex justify-center"
         >
-          <a href="/menu" className="link-arrow text-muted hover:text-charcoal">
-            Full menu
-            <ArrowRight className="h-3.5 w-3.5" />
+          <a
+            href="/menu"
+            className="group inline-flex items-center gap-3 border border-charcoal/20 px-6 py-3 font-body text-[0.7rem] font-semibold uppercase tracking-wide-caps text-charcoal transition-all duration-300 hover:border-charcoal hover:bg-charcoal hover:text-cream"
+          >
+            View full menu
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
           </a>
         </motion.div>
       </Container>

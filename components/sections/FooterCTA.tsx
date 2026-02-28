@@ -12,13 +12,13 @@ export function FooterCTA() {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.92, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [0.94, 1]);
 
   return (
     <section id="contact" ref={ref} className="bg-cream px-4 py-4 md:px-6 md:py-6">
       <motion.div
         style={{ scale }}
-        className="relative overflow-hidden bg-charcoal px-6 py-24 md:py-32 lg:py-40"
+        className="relative overflow-hidden bg-charcoal px-6 py-16 md:py-24 lg:py-28"
       >
         {/* Glow */}
         <div className="pointer-events-none absolute -right-[10vw] top-[10vh] h-[50vh] w-[40vw] rounded-full bg-accent/8 blur-[150px]" />
@@ -28,20 +28,19 @@ export function FooterCTA() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="mb-6 font-body text-[0.7rem] font-medium uppercase tracking-wide-caps text-cream/30"
+            className="mb-4 font-body text-[0.65rem] font-semibold uppercase tracking-wide-caps text-cream/30"
           >
             Get started
           </motion.p>
 
           <motion.h2
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-            className="mx-auto max-w-3xl font-display text-h1 font-bold leading-display tracking-tight-display text-cream"
+            className="mx-auto max-w-3xl font-display text-h1 font-bold leading-tight tracking-tight-display text-cream"
           >
-            Ready to eat
-            <br />
+            Ready to eat{" "}
             <span className="text-accent">better?</span>
           </motion.h2>
 
@@ -49,19 +48,19 @@ export function FooterCTA() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="mx-auto mt-6 max-w-sm font-body text-sm leading-relaxed text-cream/35"
+            transition={{ delay: 0.2 }}
+            className="mx-auto mt-4 max-w-sm font-body text-sm leading-relaxed text-cream/35"
           >
             One message on WhatsApp. That&apos;s all it takes to start
             your monthly tiffin plan.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-            className="mt-12 flex flex-col items-center gap-6 sm:flex-row"
+            transition={{ delay: 0.35, duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
+            className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-5"
           >
             <a
               href={`${CONTACT.whatsapp}?text=${encodeURIComponent(
@@ -69,7 +68,7 @@ export function FooterCTA() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-fill btn-fill-light"
+              className="btn-fill btn-fill-light w-full text-center sm:w-auto"
             >
               <span>Start on WhatsApp</span>
             </a>
@@ -86,8 +85,8 @@ export function FooterCTA() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.7 }}
-            className="mt-20 space-y-1 font-body text-xs text-cream/15"
+            transition={{ delay: 0.5 }}
+            className="mt-14 space-y-0.5 font-body text-[0.65rem] text-cream/15"
           >
             <p>{CONTACT.address}</p>
             <p>{CONTACT.hours}</p>

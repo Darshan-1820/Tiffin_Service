@@ -54,9 +54,9 @@ export function SteamParticles({ visible, baseY }: SteamParticlesProps) {
       </bufferGeometry>
       <pointsMaterial
         size={0.04}
-        color="#E8E0D4"
+        color="#F0EBE3"
         transparent
-        opacity={0.25}
+        opacity={0.2}
         sizeAttenuation
         depthWrite={false}
       />

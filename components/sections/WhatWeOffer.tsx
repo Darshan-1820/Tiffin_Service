@@ -9,54 +9,57 @@ const meals = [
   {
     title: "Lunch",
     label: "Lunch Only",
-    time: "8:00 AM – 12:00 PM",
+    time: "8 AM to 12 PM",
     price: PRICING.lunch,
-    items: "Dal, Sabzi, Rice, 4 Rotis",
+    items: "Dal, 1 Sabji, Rice, 5 Rotis",
     description:
-      "A complete thali prepared fresh every morning. Every ingredient visible, every calorie counted.",
+      "A complete thali prepared fresh every morning with seasonal vegetables. The dish changes daily, the quality stays the same.",
   },
   {
     title: "Dinner",
     label: "Dinner Only",
-    time: "5:00 – 9:00 PM",
+    time: "5 to 9 PM",
     price: PRICING.dinner,
-    items: "Paneer/Sabzi, Rice, 4 Rotis, Raita",
+    items: "Dal, 1 Sabji, Rice, 5 Rotis",
     description:
-      "Different menu every night. Same standard of freshness, transparency, and care.",
+      "A different menu every evening. Same fresh ingredients, same care. Never a repeat of lunch.",
   },
 ];
+
+const savingsAmount = PRICING.lunch + PRICING.dinner - PRICING.both;
 
 export function WhatWeOffer() {
   return (
     <section className="bg-cream">
       {/* Marquee divider */}
-      <div className="border-y border-charcoal/8 py-5">
+      <div className="border-y border-charcoal/8 py-4">
         <Marquee
           items={[
             "Fresh Daily",
-            "₹3,100/month",
+            "From ₹2,500/month",
             "Full Transparency",
             "Manish Nagar",
             "Lunch & Dinner",
-            "Home-cooked",
+            "Fit Bite",
+            "Laundry Service",
           ]}
-          className="text-charcoal/60"
+          className="text-charcoal/50"
         />
       </div>
 
-      <div className="py-24 md:py-32 lg:py-40">
+      <div className="py-16 md:py-20 lg:py-24">
         <Container>
           {/* Section title */}
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="mb-4 font-body text-[0.7rem] font-medium uppercase tracking-wide-caps text-muted"
+            className="mb-3 font-body text-[0.65rem] font-semibold uppercase tracking-wide-caps text-muted"
           >
             What we offer
           </motion.p>
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
@@ -67,45 +70,45 @@ export function WhatWeOffer() {
             <span className="text-accent">Zero compromises.</span>
           </motion.h2>
 
-          {/* Cards — editorial grid */}
-          <div className="mt-16 grid gap-0 border-t border-charcoal/10 md:grid-cols-2">
+          {/* Cards */}
+          <div className="mt-12 grid gap-0 border-t border-charcoal/10 md:grid-cols-2">
             {meals.map((meal, i) => (
               <motion.div
                 key={meal.title}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
+                viewport={{ once: true, margin: "-60px" }}
                 transition={{
                   duration: 0.6,
-                  delay: i * 0.12,
+                  delay: i * 0.1,
                   ease: [0.76, 0, 0.24, 1],
                 }}
-                className={`border-b border-charcoal/10 p-8 md:p-12 ${
+                className={`border-b border-charcoal/10 p-6 md:p-10 ${
                   i === 0 ? "md:border-r" : ""
                 }`}
               >
-                <div className="mb-6 flex items-baseline justify-between">
+                <div className="mb-4 flex items-baseline justify-between">
                   <h3 className="font-display text-h3 font-bold text-charcoal">
                     {meal.title}
                   </h3>
-                  <span className="font-body text-xs uppercase tracking-wide-caps text-muted">
+                  <span className="font-body text-[0.65rem] font-semibold uppercase tracking-wide-caps text-muted">
                     {meal.time}
                   </span>
                 </div>
 
-                <p className="mb-4 font-serif text-lg italic text-charcoal/80">
+                <p className="mb-3 font-serif text-base italic text-charcoal/80">
                   {meal.items}
                 </p>
 
-                <p className="mb-8 font-body text-sm leading-relaxed text-muted">
+                <p className="mb-6 font-body text-sm leading-relaxed text-muted">
                   {meal.description}
                 </p>
 
-                <p className="mb-2 font-body text-xs uppercase tracking-wide-caps text-muted">
+                <p className="mb-1.5 font-body text-[0.65rem] font-semibold uppercase tracking-wide-caps text-muted">
                   {meal.label}
                 </p>
                 <div className="flex items-baseline gap-1">
-                  <span className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-none text-charcoal">
+                  <span className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-bold leading-none text-charcoal">
                     ₹{meal.price.toLocaleString("en-IN")}
                   </span>
                   <span className="font-body text-xs text-muted">/month</span>
@@ -116,17 +119,22 @@ export function WhatWeOffer() {
 
           {/* Combined price */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
-            className="border-b border-charcoal/10 py-8 text-center md:py-12"
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.76, 0, 0.24, 1] }}
+            className="border-b border-charcoal/10 py-6 text-center md:py-8"
           >
-            <p className="mb-2 font-body text-xs uppercase tracking-wide-caps text-accent">
-              Lunch & Dinner
-            </p>
-            <div className="flex items-baseline justify-center gap-1">
-              <span className="font-display text-[clamp(2.5rem,5vw,4rem)] font-bold leading-none text-charcoal">
+            <div className="mb-2 flex items-center justify-center gap-3">
+              <p className="font-body text-[0.65rem] font-semibold uppercase tracking-wide-caps text-accent">
+                Lunch & Dinner
+              </p>
+              <span className="inline-block bg-accent/10 px-3 py-1 font-body text-[0.6rem] font-bold uppercase tracking-wide-caps text-accent">
+                Save ₹{savingsAmount.toLocaleString("en-IN")}
+              </span>
+            </div>
+            <div className="flex items-baseline justify-center gap-2">
+              <span className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-none text-charcoal">
                 ₹{PRICING.both.toLocaleString("en-IN")}
               </span>
               <span className="font-body text-sm text-muted">/month</span>
@@ -138,8 +146,8 @@ export function WhatWeOffer() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="mt-12 text-center"
+            transition={{ delay: 0.2 }}
+            className="mt-8 text-center"
           >
             <a
               href={`${CONTACT.whatsapp}?text=${encodeURIComponent(

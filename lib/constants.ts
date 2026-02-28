@@ -1,8 +1,8 @@
 export const SITE = {
-  name: "Tiffin Cart",
-  tagline: "Home-cooked. Delivered.",
+  name: "Tiffin Kart",
+  tagline: "Fresh from Home. Delivered.",
   description:
-    "Fresh, home-cooked tiffin delivery in Manish Nagar, Nagpur. Lunch & Dinner with full ingredient transparency.",
+    "Fresh tiffin delivery in Manish Nagar, Nagpur. Lunch & dinner with full ingredient transparency and nutrition tracking.",
   url: "https://tiffincart.in",
 } as const;
 
@@ -15,15 +15,16 @@ export const CONTACT = {
 } as const;
 
 export const PRICING = {
-  lunch: 2400,
-  dinner: 2800,
-  both: 3100,
+  lunch: 2500,
+  dinner: 2500,
+  both: 3500,
   skipDays: "6–8 days/month",
 } as const;
 
 export const NAV_LINKS = [
   { label: "Menu", href: "#menu" },
-  { label: "About", href: "#about" },
+  { label: "Fit Bite", href: "#fitbite" },
   { label: "Process", href: "#process" },
+  { label: "Laundry", href: "#laundry" },
   { label: "Contact", href: "#contact" },
 ] as const;
